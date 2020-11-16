@@ -9,7 +9,6 @@ export class RouletteApi extends RESTDataSource {
   async getEmployee(employeeId: String) {
     const result = await this.get(`employees/${employeeId}`);
 
-    console.log('getEmployee result', result);
     return result;
   }
 };

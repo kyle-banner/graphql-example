@@ -2,8 +2,8 @@ import {
   QueryEmployeeArgs,
   Employee,
   Resolvers,
-} from '../../../graphqlTypes';
-import employee from '../service/employee.service';
+} from '@partTwo/graphqlTypes';
+import employee from '@partTwoEmployee/service/employee.service';
 
 const resolver: Resolvers = {
   Query: {

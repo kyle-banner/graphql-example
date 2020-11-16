@@ -9,8 +9,8 @@ import { loadSchemaSync } from '@graphql-tools/load';
 import { GraphQLFileLoader } from '@graphql-tools/graphql-file-loader';
 
 import config from './local.config.json';
-import resolvers from './resolver';
-import { RouletteApi } from './routletteApi';
+import resolvers from '@partTwo/resolver';
+import { RouletteApi } from '@partTwo/routletteApi';
 
 const schema = lexicographicSortSchema(
   loadSchemaSync('**/*.graphql', {
