@@ -4,8 +4,10 @@ import {
   Employee,
   Resolvers,
   CreateEmployeePayload,
+  MutationDeleteEmployeeArgs,
+  DeleteEmployeePayload,
 } from '@part3/graphqlTypes';
-import { employee, employees, createEmployee } from '@part3Employee/service/employee.service';
+import { employee, employees, createEmployee, deleteEmployee } from '@part3Employee/service/employee.service';
 
 const resolver: Resolvers = {
   Query: {
@@ -20,6 +22,9 @@ const resolver: Resolvers = {
     createEmployee: async (parent, args: MutationCreateEmployeeArgs, { dataSources }): Promise<CreateEmployeePayload> => {
       return createEmployee(args, { dataSources });
     },
+    deleteEmployee: async (parent, args: MutationDeleteEmployeeArgs, { dataSources }): Promise<DeleteEmployeePayload> => {
+      return deleteEmployee(args, { dataSources });
+    }
   }
 };
 

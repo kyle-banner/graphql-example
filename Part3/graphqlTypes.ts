@@ -60,6 +60,15 @@ export type CreateEmployeeInput = {
   practice?: Maybe<Practice>;
 };
 
+export type DeleteEmployeeInput = {
+  id?: Maybe<Scalars['String']>;
+};
+
+export type DeleteEmployeePayload = {
+  __typename?: 'DeleteEmployeePayload';
+  success: Scalars['Boolean'];
+};
+
 export type CreateEmployeePayload = {
   __typename?: 'CreateEmployeePayload';
   url?: Maybe<Scalars['String']>;
@@ -68,13 +77,22 @@ export type CreateEmployeePayload = {
 /** GraphQL operations that mutate/write data. */
 export type Mutation = {
   __typename?: 'Mutation';
+  /** Create employee with request body */
   createEmployee?: Maybe<CreateEmployeePayload>;
+  /** Delete employee with employee id */
+  deleteEmployee?: Maybe<DeleteEmployeePayload>;
 };
 
 
 /** GraphQL operations that mutate/write data. */
 export type MutationCreateEmployeeArgs = {
   input: CreateEmployeeInput;
+};
+
+
+/** GraphQL operations that mutate/write data. */
+export type MutationDeleteEmployeeArgs = {
+  input: DeleteEmployeeInput;
 };
 
 /** GraphQL operations that query/read data. */
@@ -164,10 +182,12 @@ export type ResolversTypes = {
   NameInput: NameInput;
   Employee: ResolverTypeWrapper<Employee>;
   CreateEmployeeInput: CreateEmployeeInput;
+  DeleteEmployeeInput: DeleteEmployeeInput;
+  DeleteEmployeePayload: ResolverTypeWrapper<DeleteEmployeePayload>;
+  Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
   CreateEmployeePayload: ResolverTypeWrapper<CreateEmployeePayload>;
   Mutation: ResolverTypeWrapper<{}>;
   Query: ResolverTypeWrapper<{}>;
-  Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
 };
 
 /** Mapping between all available schema types and the resolvers parents */
@@ -177,10 +197,12 @@ export type ResolversParentTypes = {
   NameInput: NameInput;
   Employee: Employee;
   CreateEmployeeInput: CreateEmployeeInput;
+  DeleteEmployeeInput: DeleteEmployeeInput;
+  DeleteEmployeePayload: DeleteEmployeePayload;
+  Boolean: Scalars['Boolean'];
   CreateEmployeePayload: CreateEmployeePayload;
   Mutation: {};
   Query: {};
-  Boolean: Scalars['Boolean'];
 };
 
 export type NameResolvers<ContextType = any, ParentType extends ResolversParentTypes['Name'] = ResolversParentTypes['Name']> = {
@@ -198,6 +220,11 @@ export type EmployeeResolvers<ContextType = any, ParentType extends ResolversPar
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
+export type DeleteEmployeePayloadResolvers<ContextType = any, ParentType extends ResolversParentTypes['DeleteEmployeePayload'] = ResolversParentTypes['DeleteEmployeePayload']> = {
+  success?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
 export type CreateEmployeePayloadResolvers<ContextType = any, ParentType extends ResolversParentTypes['CreateEmployeePayload'] = ResolversParentTypes['CreateEmployeePayload']> = {
   url?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
@@ -205,6 +232,7 @@ export type CreateEmployeePayloadResolvers<ContextType = any, ParentType extends
 
 export type MutationResolvers<ContextType = any, ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']> = {
   createEmployee?: Resolver<Maybe<ResolversTypes['CreateEmployeePayload']>, ParentType, ContextType, RequireFields<MutationCreateEmployeeArgs, 'input'>>;
+  deleteEmployee?: Resolver<Maybe<ResolversTypes['DeleteEmployeePayload']>, ParentType, ContextType, RequireFields<MutationDeleteEmployeeArgs, 'input'>>;
 };
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
@@ -215,6 +243,7 @@ export type QueryResolvers<ContextType = any, ParentType extends ResolversParent
 export type Resolvers<ContextType = any> = {
   Name?: NameResolvers<ContextType>;
   Employee?: EmployeeResolvers<ContextType>;
+  DeleteEmployeePayload?: DeleteEmployeePayloadResolvers<ContextType>;
   CreateEmployeePayload?: CreateEmployeePayloadResolvers<ContextType>;
   Mutation?: MutationResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;

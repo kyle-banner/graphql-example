@@ -1,4 +1,4 @@
-import { Employee, QueryEmployeeArgs, MutationCreateEmployeeArgs, CreateEmployeePayload } from '@part3/graphqlTypes';
+import { Employee, QueryEmployeeArgs, MutationCreateEmployeeArgs, CreateEmployeePayload, MutationDeleteEmployeeArgs, DeleteEmployeePayload } from '@part3/graphqlTypes';
 
 const employee = async (
   args: QueryEmployeeArgs,
@@ -16,7 +16,7 @@ const employees = async (
 ): Promise<Employee[]> => {
   const response: Employee[] = await dataSources.rouletteApi.getEmployees();
 
-  console.log('GET /employees/ response', response);
+  console.log('GET /employees response', response);
 
   return response;
 };
@@ -34,4 +34,19 @@ const createEmployee = async (
   };
 };
 
-export { employee, employees, createEmployee };
+const deleteEmployee = async (
+  args: MutationDeleteEmployeeArgs,
+  { dataSources }
+): Promise<DeleteEmployeePayload> => {
+  const response: string = await dataSources.rouletteApi.deleteEmployee(args);
+
+  console.log('DELETE /employees/{id} response', response);
+
+  // 404 will be thrown and shown in playground if encountered
+
+  return {
+    success: true
+  };
+};
+
+export { employee, employees, createEmployee, deleteEmployee };

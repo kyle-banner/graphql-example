@@ -45,12 +45,27 @@ input CreateEmployeeInput {
   practice: Practice
 }
 
+input DeleteEmployeeInput {
+  id: String
+}
+
+type DeleteEmployeePayload {
+  success: Boolean!
+}
+
 type CreateEmployeePayload {
   url: String
 }
 
 extend type Mutation {
+  """
+  Create employee with request body
+  """
   createEmployee(input: CreateEmployeeInput!): CreateEmployeePayload
+  """
+  Delete employee with employee id
+  """
+  deleteEmployee(input: DeleteEmployeeInput!): DeleteEmployeePayload
 }
 
 extend type Query {
