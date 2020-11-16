@@ -10,8 +10,8 @@
     "typeRoots": ["node_modules/@types"],
     "baseUrl": ".",
     "paths": {
-      "@partTwoEmployee/*": ["PartTwo/domain/employee/*"],
-      "@partTwo/*": ["PartTwo/*"],
+      "@part2Employee/*": ["Part2/domain/employee/*"],
+      "@part2/*": ["Part2/*"],
     }
   },
   "include": ["**/*.ts"]

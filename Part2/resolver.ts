@@ -1,5 +1,5 @@
 import { merge } from 'lodash';
-import employeeResolvers from '@partTwoEmployee/resolver/employee.resolver';
+import employeeResolvers from '@part2Employee/resolver/employee.resolver';
 
 export default merge(
   employeeResolvers,

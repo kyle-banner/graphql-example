@@ -2,11 +2,11 @@
   "name": "getting-started-with-graphql",
   "version": "1.0.0",
   "description": "",
-  "main": "PartTwo/index.js",
+  "main": "Part3/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "part-one": "node PartOne/index",
-    "part-two": "ts-node-dev -r tsconfig-paths/register PartTwo/server.ts",
+    "part-two": "ts-node-dev -r tsconfig-paths/register Part2/server.ts",
     "generate-typings": "graphql-codegen"
   },
   "keywords": [],

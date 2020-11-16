@@ -5,8 +5,8 @@
 import { register } from 'tsconfig-paths';
 
 const paths = {
-  "@partTwoEmployee/*": ["PartTwo/domain/employee/*"],
-  "@partTwo/*": ["PartTwo/*"],
+  "@part2Employee/*": ["Part2/domain/employee/*"],
+  "@part2/*": ["Part2/*"],
 };
 const baseUrl = '.';
 
