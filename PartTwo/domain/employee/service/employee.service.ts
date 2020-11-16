@@ -1,4 +1,4 @@
-import { Employee, QueryEmployeeArgs } from '../../graphqlTypes';
+import { Employee, QueryEmployeeArgs } from '../../../graphqlTypes';
 
 const employee = async (
   args: QueryEmployeeArgs,

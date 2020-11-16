@@ -1,5 +1,5 @@
 import { merge } from 'lodash';
-import employeeResolvers from '../domain/employee/employee.resolver';
+import employeeResolvers from '@partTwoEmployee/resolver/employee.resolver';
 // import meetingResolvers from '../domain/meeting/meeting.resolver';
 
 export default merge(

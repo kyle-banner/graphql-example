@@ -7,29 +7,11 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "target": "es6",
-    "typeRoots": ["./src/typings", "node_modules/@types"],
+    "typeRoots": ["node_modules/@types"],
     "baseUrl": ".",
     "paths": {
-      "src/*": ["src/*"],
-      "@account/*": ["src/domain/account/*"],
-      "@billing/*": ["src/domain/billing/*"],
-      "@campaign/*": ["src/domain/campaign/*"],
-      "@cpni/*": ["src/domain/cpni/*"],
-      "@connectedDevices/*": ["src/domain/connected-devices/*"],
-      "@email/*": ["src/domain/email/*"],
-      "@equipment/*": ["src/domain/equipment/*"],
-      "@equipmentActivation/*": ["src/domain/equipment-activation/*"],
-      "@geolocation/*": ["src/domain/geolocation/*"],
-      "@identity/*": ["src/domain/identity/*"],
-      "@mobile/*": ["src/domain/mobile/*"],
-      "@mobileAccount/*": ["src/domain/mobile-account/*"],
-      "@mobileActivation/*": ["src/domain/mobile-activation/*"],
-      "@mobileBilling/*": ["src/domain/mobile-billing/*"],
-      "@mobileNotification/*": ["src/domain/mobile-notification/*"],
-      "@prefcomm/*": ["src/domain/prefcomm/*"],
-      "@payment/*": ["src/domain/payment/*"]
+      "@partTwoEmployee/*": ["PartTwo/domain/employee/*"],
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.js", "src/**/*.json"],
-  "exclude": ["**/*.test.ts"]
+  "include": ["**/*.ts"]
 }
