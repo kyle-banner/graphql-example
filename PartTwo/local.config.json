@@ -1,0 +1,114 @@
+{
+  "serviceName": "graphql-service",
+  "graphQLPath": "/graph",
+  "introspection": true,
+  "operationComplexityLimit": "20000",
+  "playground": {
+    "settings": {
+      "request.credentials": "same-origin",
+      "tracing.hideTracingResponse": false,
+      "tracing.tracingSupported": true,
+      "schema.polling.enable": false
+    }
+  },
+  "graphManager": {
+    "graphVariant": ""
+  },
+  "devTools": {
+    "enabled": true
+  },
+  "dataSources": {
+    "spcSwagger": {
+      "account": {
+        "pathToSpec": "src/domain/account/swagger/account-spec.yaml",
+        "baseUrl": "http://localhost:8001/api/v1/namespaces/cnet/services/account-domain-service:8080/proxy/accountdomainservice",
+        "useMocks": true
+      },
+      "billing": {
+        "pathToSpec": "src/domain/billing/swagger/billing-spec.yaml",
+        "baseUrl": "http://localhost:8001/api/v1/namespaces/cnet/services/billing-domain-service:8080/proxy/billingdomainservice",
+        "msaBaseUrl": "http://localhost:8001/api/v1/namespaces/cnet/services/billing-domain-service:8080/proxy/billingdomainservice",
+        "useMocks": true
+      },
+      "campaign": {
+        "pathToSpec": "src/domain/campaign/swagger/campaign-spec.yaml",
+        "baseUrl": "http://localhost:8001/api/v1/namespaces/cnet/services/campaign-domain-service:8080/proxy/campaigndomainservice",
+        "useMocks": true
+      },
+      "connectedDevices": {
+        "pathToSpec": "src/domain/connected-devices/swagger/connecteddevices-spec.yaml",
+        "baseUrl": "http://localhost:8001/api/v1/namespaces/cnet/services/connecteddevices-domain-service:8080/proxy/connecteddevicesdomainservice",
+        "useMocks": true
+      },
+      "cpni": {
+        "pathToSpec": "src/domain/cpni/swagger/cpni-spec.yaml",
+        "baseUrl": "http://localhost:8001/api/v1/namespaces/cnet/services/cpni-domain-service:8080/proxy/cpnidomainservice",
+        "useMocks": true
+      },
+      "email": {
+        "pathToSpec": "src/domain/email/swagger/email-spec.yaml",
+        "baseUrl": "http://localhost:8001/api/v1/namespaces/cnet/services/email-domain-service:8080/proxy/emaildomainservice",
+        "useMocks": true
+      },
+      "equipment": {
+        "pathToSpec": "src/domain/equipment/swagger/equipment-spec.yaml",
+        "baseUrl": "http://localhost:8001/api/v1/namespaces/cnet/services/equipment-domain-service:8080/proxy/equipmentdomainservice",
+        "useMocks": true
+      },
+      "equipmentActivation": {
+        "pathToSpec": "src/domain/equipment-activation/swagger/equipmentactivation-spec.yaml",
+        "baseUrl": "http://localhost:8001/api/v1/namespaces/cnet/services/equipment-activation-domain-service:8080/proxy/equipmentactivationdomainservice",
+        "useMocks": true
+      },
+      "geolocation": {
+        "pathToSpec": "src/domain/geolocation/swagger/geolocation-spec.yaml",
+        "baseUrl": "http://localhost:8001/api/v1/namespaces/cnet/services/geolocation-domain-service:8080/proxy/geolocationdomainservice",
+        "useMocks": true
+      },
+      "identity": {
+        "pathToSpec": "src/domain/identity/swagger/identity-spec.yaml",
+        "baseUrl": "http://localhost:8001/api/v1/namespaces/cnet/services/identity-domain-service:8080/proxy/identitydomainservice",
+        "useMocks": true
+      },
+      "mobileAccount": {
+        "pathToSpec": "src/domain/mobile-account/swagger/mobile2-account-spec.yaml",
+        "baseUrl": "http://localhost:8001/api/v1/namespaces/cnet/services/mobile2-account-domain-service:8080/proxy/mobile2accountdomainservice",
+        "useMocks": true
+      },
+      "mobileActivation": {
+        "pathToSpec": "src/domain/mobile-activation/swagger/mobile2-activation-spec.yaml",
+        "baseUrl": "http://localhost:8001/api/v1/namespaces/cnet/services/mobile2-activation-domain-service:8080/proxy/mobile2activationdomainservice",
+        "useMocks": true
+      },
+      "mobileBilling": {
+        "pathToSpec": "src/domain/mobile-billing/swagger/mobile2-billing-spec.yaml",
+        "baseUrl": "http://localhost:8001/api/v1/namespaces/cnet/services/mobile2-billing-domain-service:8080/proxy/mobile2billingdomainservice",
+        "useMocks": true
+      },
+      "mobileNotification": {
+        "pathToSpec": "src/domain/mobile-notification/swagger/mobile-notification-spec.yaml",
+        "baseUrl": "http://localhost:8001/api/v1/namespaces/cnet/services/mobile-notification-domain-service:8080/proxy/mobilenotificationdomainservice",
+        "useMocks": true
+      },
+      "prefcomm": {
+        "pathToSpec": "src/domain/prefcomm/swagger/prefcomm-spec.yaml",
+        "baseUrl": "http://localhost:8001/api/v1/namespaces/cnet/services/prefcomm-domain-service:8080/proxy/prefcommdomainservice",
+        "useMocks": true
+      },
+      "payment": {
+        "pathToSpec": "src/domain/payment/swagger/payment-spec.yaml",
+        "baseUrl": "http://localhost:8001/api/v1/namespaces/cnet/services/payment-domain-service:8080/proxy/paymentdomainservice",
+        "useMocks": true
+      },
+      "session": {
+        "pathToSpec": "src/data-source/swagger/session-spec.yaml",
+        "baseUrl": "http://localhost:8001/api/v1/namespaces/cnet/services/session-domain-service:8080/proxy/sessiondomainservice",
+        "useMocks": true
+      }
+    }
+  },
+  "logging": {
+    "level": "error"
+  },
+  "port": 3000
+}
