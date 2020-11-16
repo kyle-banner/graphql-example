@@ -17,3 +17,18 @@ Example Query:
 Note that only fields requested will be returned, remove title and show that title is not in the result.
 
 ## Part Two
+Arrange the code responsibly and create our first query that actually uses the REST API.
+
+Example Query:
+```
+query {
+  employee(id: "8caf5cac-7dca-4e27-bf0f-609ef6c0ac36") {
+    email
+    id
+    name {
+      firstName
+      lastName
+    }
+  }
+}
+```

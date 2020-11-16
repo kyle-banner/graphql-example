@@ -8,7 +8,7 @@ import { addResolversToSchema } from '@graphql-tools/schema';
 import { loadSchemaSync } from '@graphql-tools/load';
 import { GraphQLFileLoader } from '@graphql-tools/graphql-file-loader';
 
-import config from './local.config.json';
+import config from '@part2/local.config.json';
 import resolvers from '@part2/resolver';
 import { RouletteApi } from '@part2/routletteApi';
 
@@ -49,8 +49,4 @@ apolloServer.applyMiddleware({
 app.listen({ port }, () => {
   // eslint-disable-next-line no-console
   console.log(`🚀  GraphQL API at: http://localhost:${port}${apolloServer.graphqlPath}`);
-  // eslint-disable-next-line no-console
-  console.log(
-    `📝  GraphQL playground at: http://localhost:${port}${apolloServer.graphqlPath}/playground`
-  );
 });
