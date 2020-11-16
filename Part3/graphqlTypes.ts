@@ -64,6 +64,15 @@ export type DeleteEmployeeInput = {
   id?: Maybe<Scalars['String']>;
 };
 
+export type UpdateEmployeeInput = {
+  id?: Maybe<Scalars['String']>;
+  name?: Maybe<NameInput>;
+  employerName?: Maybe<Scalars['String']>;
+  title?: Maybe<Title>;
+  email?: Maybe<Scalars['String']>;
+  practice?: Maybe<Practice>;
+};
+
 export type DeleteEmployeePayload = {
   __typename?: 'DeleteEmployeePayload';
   success: Scalars['Boolean'];
@@ -74,6 +83,11 @@ export type CreateEmployeePayload = {
   url?: Maybe<Scalars['String']>;
 };
 
+export type UpdateEmployeePayload = {
+  __typename?: 'UpdateEmployeePayload';
+  url?: Maybe<Scalars['String']>;
+};
+
 /** GraphQL operations that mutate/write data. */
 export type Mutation = {
   __typename?: 'Mutation';
@@ -81,6 +95,8 @@ export type Mutation = {
   createEmployee?: Maybe<CreateEmployeePayload>;
   /** Delete employee with employee id */
   deleteEmployee?: Maybe<DeleteEmployeePayload>;
+  /** Update employee with employee id */
+  updateEmployee?: Maybe<UpdateEmployeePayload>;
 };
 
 
@@ -93,6 +109,12 @@ export type MutationCreateEmployeeArgs = {
 /** GraphQL operations that mutate/write data. */
 export type MutationDeleteEmployeeArgs = {
   input: DeleteEmployeeInput;
+};
+
+
+/** GraphQL operations that mutate/write data. */
+export type MutationUpdateEmployeeArgs = {
+  input: UpdateEmployeeInput;
 };
 
 /** GraphQL operations that query/read data. */
@@ -183,9 +205,11 @@ export type ResolversTypes = {
   Employee: ResolverTypeWrapper<Employee>;
   CreateEmployeeInput: CreateEmployeeInput;
   DeleteEmployeeInput: DeleteEmployeeInput;
+  UpdateEmployeeInput: UpdateEmployeeInput;
   DeleteEmployeePayload: ResolverTypeWrapper<DeleteEmployeePayload>;
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
   CreateEmployeePayload: ResolverTypeWrapper<CreateEmployeePayload>;
+  UpdateEmployeePayload: ResolverTypeWrapper<UpdateEmployeePayload>;
   Mutation: ResolverTypeWrapper<{}>;
   Query: ResolverTypeWrapper<{}>;
 };
@@ -198,9 +222,11 @@ export type ResolversParentTypes = {
   Employee: Employee;
   CreateEmployeeInput: CreateEmployeeInput;
   DeleteEmployeeInput: DeleteEmployeeInput;
+  UpdateEmployeeInput: UpdateEmployeeInput;
   DeleteEmployeePayload: DeleteEmployeePayload;
   Boolean: Scalars['Boolean'];
   CreateEmployeePayload: CreateEmployeePayload;
+  UpdateEmployeePayload: UpdateEmployeePayload;
   Mutation: {};
   Query: {};
 };
@@ -230,9 +256,15 @@ export type CreateEmployeePayloadResolvers<ContextType = any, ParentType extends
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
+export type UpdateEmployeePayloadResolvers<ContextType = any, ParentType extends ResolversParentTypes['UpdateEmployeePayload'] = ResolversParentTypes['UpdateEmployeePayload']> = {
+  url?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
 export type MutationResolvers<ContextType = any, ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']> = {
   createEmployee?: Resolver<Maybe<ResolversTypes['CreateEmployeePayload']>, ParentType, ContextType, RequireFields<MutationCreateEmployeeArgs, 'input'>>;
   deleteEmployee?: Resolver<Maybe<ResolversTypes['DeleteEmployeePayload']>, ParentType, ContextType, RequireFields<MutationDeleteEmployeeArgs, 'input'>>;
+  updateEmployee?: Resolver<Maybe<ResolversTypes['UpdateEmployeePayload']>, ParentType, ContextType, RequireFields<MutationUpdateEmployeeArgs, 'input'>>;
 };
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
@@ -245,6 +277,7 @@ export type Resolvers<ContextType = any> = {
   Employee?: EmployeeResolvers<ContextType>;
   DeleteEmployeePayload?: DeleteEmployeePayloadResolvers<ContextType>;
   CreateEmployeePayload?: CreateEmployeePayloadResolvers<ContextType>;
+  UpdateEmployeePayload?: UpdateEmployeePayloadResolvers<ContextType>;
   Mutation?: MutationResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;
 };

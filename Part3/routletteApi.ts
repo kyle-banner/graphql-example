@@ -1,4 +1,4 @@
-import { MutationCreateEmployeeArgs, MutationDeleteEmployeeArgs } from '@part3/graphqlTypes';
+import { MutationCreateEmployeeArgs, MutationDeleteEmployeeArgs, MutationUpdateEmployeeArgs } from '@part3/graphqlTypes';
 import { RESTDataSource } from 'apollo-datasource-rest';
 
 export class RouletteApi extends RESTDataSource {
@@ -29,6 +29,14 @@ export class RouletteApi extends RESTDataSource {
 
   async deleteEmployee(args: MutationDeleteEmployeeArgs) {
     const result = await this.delete(`employees/${args.input.id}`, {
+      ...args.input
+    });
+
+    return result;
+  }
+
+  async updateEmployee(args: MutationUpdateEmployeeArgs) {
+    const result = await this.put(`employees/${args.input.id}`, {
       ...args.input
     });
 

@@ -36,3 +36,61 @@ query {
 ## Part Three
 Add mutations and queries to cover the Roulette REST API.
 
+Available Queries and Mutations:
+```
+query getEmployeeById {
+  employee(id: "0894df6c-aed4-494b-bf57-22fa378b9609") {
+    email
+    id
+    name {
+      firstName
+      lastName
+    }
+  }
+}
+
+query getAllEmployees {
+  employees {
+    id
+  }
+}
+
+mutation createEmployee {
+  createEmployee(input: {
+    email: "new.graphql@slalom.com",
+    employerName: "Slalom",
+    name: {
+      firstName: "Kyle",
+      lastName: "Banner",
+    }
+    practice: DL,
+    title: SA
+  }) {
+    url
+  }
+}
+
+mutation deleteEmployee {
+  deleteEmployee(input:{
+    id: "ce118be0-e4f3-4e71-8032-162ac9517170"
+  }) {
+    success
+  }
+}
+
+mutation updateEmployee {
+  updateEmployee(input:{
+    id: "0894df6c-aed4-494b-bf57-22fa378b9609",
+    email: "new.graphql@slalom.com",
+    employerName: "Slalom",
+    name: {
+      firstName: "Kyle",
+      lastName: "Banner",
+    }
+    practice: DL,
+    title: SA
+  }) {
+    url
+  }
+}
+```

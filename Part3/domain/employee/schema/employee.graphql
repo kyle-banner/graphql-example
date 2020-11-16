@@ -49,11 +49,24 @@ input DeleteEmployeeInput {
   id: String
 }
 
+input UpdateEmployeeInput {
+  id: String
+  name: NameInput
+  employerName: String
+  title: Title
+  email: String
+  practice: Practice
+}
+
 type DeleteEmployeePayload {
   success: Boolean!
 }
 
 type CreateEmployeePayload {
+  url: String
+}
+
+type UpdateEmployeePayload {
   url: String
 }
 
@@ -66,6 +79,10 @@ extend type Mutation {
   Delete employee with employee id
   """
   deleteEmployee(input: DeleteEmployeeInput!): DeleteEmployeePayload
+  """
+  Update employee with employee id
+  """
+  updateEmployee(input: UpdateEmployeeInput!): UpdateEmployeePayload
 }
 
 extend type Query {

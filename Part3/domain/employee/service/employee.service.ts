@@ -1,4 +1,4 @@
-import { Employee, QueryEmployeeArgs, MutationCreateEmployeeArgs, CreateEmployeePayload, MutationDeleteEmployeeArgs, DeleteEmployeePayload } from '@part3/graphqlTypes';
+import { Employee, QueryEmployeeArgs, MutationCreateEmployeeArgs, CreateEmployeePayload, MutationDeleteEmployeeArgs, DeleteEmployeePayload, MutationUpdateEmployeeArgs, UpdateEmployeePayload } from '@part3/graphqlTypes';
 
 const employee = async (
   args: QueryEmployeeArgs,
@@ -49,4 +49,19 @@ const deleteEmployee = async (
   };
 };
 
-export { employee, employees, createEmployee, deleteEmployee };
+const updateEmployee = async (
+  args: MutationUpdateEmployeeArgs,
+  { dataSources }
+): Promise<UpdateEmployeePayload> => {
+  const response: string = await dataSources.rouletteApi.updateEmployee(args);
+
+  console.log('PUT /employees/{id} response', response);
+
+  // 404 will be thrown and shown in playground if encountered
+
+  return {
+    url: response
+  };
+}
+
+export { employee, employees, createEmployee, deleteEmployee, updateEmployee };
