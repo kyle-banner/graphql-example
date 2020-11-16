@@ -1,4 +1,4 @@
-import { Employee, QueryEmployeeArgs } from '@part3/graphqlTypes';
+import { Employee, QueryEmployeeArgs, MutationCreateEmployeeArgs, CreateEmployeePayload } from '@part3/graphqlTypes';
 
 const employee = async (
   args: QueryEmployeeArgs,
@@ -6,9 +6,32 @@ const employee = async (
 ): Promise<Employee> => {
   const response: Employee = await dataSources.rouletteApi.getEmployee(args.id);
 
-  console.log('getEmployee REST result', response);
+  console.log('GET /employees/{id} response', response);
 
   return response;
 };
 
-export default employee;
+const employees = async (
+  { dataSources }
+): Promise<Employee[]> => {
+  const response: Employee[] = await dataSources.rouletteApi.getEmployees();
+
+  console.log('GET /employees/ response', response);
+
+  return response;
+};
+
+const createEmployee = async (
+  args: MutationCreateEmployeeArgs,
+  { dataSources }
+): Promise<CreateEmployeePayload> => {
+  const response: string = await dataSources.rouletteApi.createEmployee(args);
+
+  console.log('POST /employees response', response);
+
+  return {
+    url: response
+  };
+};
+
+export { employee, employees, createEmployee };

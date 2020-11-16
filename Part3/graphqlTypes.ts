@@ -38,6 +38,11 @@ export type Name = {
   lastName?: Maybe<Scalars['String']>;
 };
 
+export type NameInput = {
+  firstName?: Maybe<Scalars['String']>;
+  lastName?: Maybe<Scalars['String']>;
+};
+
 export type Employee = {
   __typename?: 'Employee';
   id?: Maybe<Scalars['String']>;
@@ -47,11 +52,38 @@ export type Employee = {
   practice?: Maybe<Practice>;
 };
 
+export type CreateEmployeeInput = {
+  name?: Maybe<NameInput>;
+  employerName?: Maybe<Scalars['String']>;
+  title?: Maybe<Title>;
+  email?: Maybe<Scalars['String']>;
+  practice?: Maybe<Practice>;
+};
+
+export type CreateEmployeePayload = {
+  __typename?: 'CreateEmployeePayload';
+  url?: Maybe<Scalars['String']>;
+};
+
+/** GraphQL operations that mutate/write data. */
+export type Mutation = {
+  __typename?: 'Mutation';
+  createEmployee?: Maybe<CreateEmployeePayload>;
+};
+
+
+/** GraphQL operations that mutate/write data. */
+export type MutationCreateEmployeeArgs = {
+  input: CreateEmployeeInput;
+};
+
 /** GraphQL operations that query/read data. */
 export type Query = {
   __typename?: 'Query';
   /** Retrieve employee by id */
   employee?: Maybe<Employee>;
+  /** Retrieve all employees */
+  employees?: Maybe<Array<Maybe<Employee>>>;
 };
 
 
@@ -129,7 +161,11 @@ export type ResolversTypes = {
   Title: Title;
   Name: ResolverTypeWrapper<Name>;
   String: ResolverTypeWrapper<Scalars['String']>;
+  NameInput: NameInput;
   Employee: ResolverTypeWrapper<Employee>;
+  CreateEmployeeInput: CreateEmployeeInput;
+  CreateEmployeePayload: ResolverTypeWrapper<CreateEmployeePayload>;
+  Mutation: ResolverTypeWrapper<{}>;
   Query: ResolverTypeWrapper<{}>;
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
 };
@@ -138,7 +174,11 @@ export type ResolversTypes = {
 export type ResolversParentTypes = {
   Name: Name;
   String: Scalars['String'];
+  NameInput: NameInput;
   Employee: Employee;
+  CreateEmployeeInput: CreateEmployeeInput;
+  CreateEmployeePayload: CreateEmployeePayload;
+  Mutation: {};
   Query: {};
   Boolean: Scalars['Boolean'];
 };
@@ -158,13 +198,25 @@ export type EmployeeResolvers<ContextType = any, ParentType extends ResolversPar
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
+export type CreateEmployeePayloadResolvers<ContextType = any, ParentType extends ResolversParentTypes['CreateEmployeePayload'] = ResolversParentTypes['CreateEmployeePayload']> = {
+  url?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
+export type MutationResolvers<ContextType = any, ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']> = {
+  createEmployee?: Resolver<Maybe<ResolversTypes['CreateEmployeePayload']>, ParentType, ContextType, RequireFields<MutationCreateEmployeeArgs, 'input'>>;
+};
+
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
   employee?: Resolver<Maybe<ResolversTypes['Employee']>, ParentType, ContextType, RequireFields<QueryEmployeeArgs, never>>;
+  employees?: Resolver<Maybe<Array<Maybe<ResolversTypes['Employee']>>>, ParentType, ContextType>;
 };
 
 export type Resolvers<ContextType = any> = {
   Name?: NameResolvers<ContextType>;
   Employee?: EmployeeResolvers<ContextType>;
+  CreateEmployeePayload?: CreateEmployeePayloadResolvers<ContextType>;
+  Mutation?: MutationResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;
 };
 

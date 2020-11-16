@@ -24,6 +24,11 @@ type Name {
   lastName: String
 }
 
+input NameInput {
+  firstName: String
+  lastName: String
+}
+
 type Employee {
   id: String
   name: Name
@@ -32,9 +37,29 @@ type Employee {
   practice: Practice
 }
 
+input CreateEmployeeInput {
+  name: NameInput
+  employerName: String
+  title: Title
+  email: String
+  practice: Practice
+}
+
+type CreateEmployeePayload {
+  url: String
+}
+
+extend type Mutation {
+  createEmployee(input: CreateEmployeeInput!): CreateEmployeePayload
+}
+
 extend type Query {
   """
   Retrieve employee by id
   """
   employee(id: String): Employee
+  """
+  Retrieve all employees
+  """
+  employees: [Employee]
 }
