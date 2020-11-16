@@ -32,3 +32,7 @@ query {
   }
 }
 ```
+
+## Part Three
+Add mutations and queries to cover the Roulette REST API.
+

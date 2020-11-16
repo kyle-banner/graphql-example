@@ -8,7 +8,7 @@ import { addResolversToSchema } from '@graphql-tools/schema';
 import { loadSchemaSync } from '@graphql-tools/load';
 import { GraphQLFileLoader } from '@graphql-tools/graphql-file-loader';
 
-import config from '@part3/local.config.json';
+import config from './local.config.json';
 import resolvers from '@part3/resolver';
 import { RouletteApi } from '@part3/routletteApi';
 

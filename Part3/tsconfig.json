@@ -11,7 +11,7 @@
     "baseUrl": ".",
     "paths": {
       "@part3Employee/*": ["domain/employee/*"],
-      "@part3/*": ["./*"],
+      "@part3/*": ["*"],
     }
   },
   "include": ["**/*.ts"]
