@@ -1,0 +1,24 @@
+{
+  "serviceName": "graphql-service",
+  "graphQLPath": "/graph",
+  "introspection": true,
+  "operationComplexityLimit": "20000",
+  "playground": {
+    "settings": {
+      "request.credentials": "same-origin",
+      "tracing.hideTracingResponse": false,
+      "tracing.tracingSupported": true,
+      "schema.polling.enable": false
+    }
+  },
+  "graphManager": {
+    "graphVariant": ""
+  },
+  "devTools": {
+    "enabled": true
+  },
+  "logging": {
+    "level": "error"
+  },
+  "port": 3000
+}

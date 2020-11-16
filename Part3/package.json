@@ -1,0 +1,30 @@
+{
+  "name": "getting-started-with-graphql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node-dev -r tsconfig-paths/register server.ts",
+    "generate-typings": "graphql-codegen"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@graphql-tools/schema": "^7.0.0",
+    "apollo-datasource-rest": "^0.9.5",
+    "apollo-server": "^2.19.0",
+    "cookie-parser": "^1.4.5",
+    "graphql": "^15.4.0",
+    "graphql-tools": "^7.0.1",
+    "tsconfig-paths": "^3.9.0"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "^1.19.1",
+    "@graphql-codegen/typescript": "^1.17.11",
+    "@graphql-codegen/typescript-resolvers": "^1.17.10",
+    "ts-node-dev": "^1.0.0",
+    "typescript": "^4.0.5"
+  }
+}
