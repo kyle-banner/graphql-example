@@ -11,12 +11,6 @@
       "schema.polling.enable": false
     }
   },
-  "graphManager": {
-    "graphVariant": ""
-  },
-  "devTools": {
-    "enabled": true
-  },
   "logging": {
     "level": "error"
   },

@@ -20,7 +20,7 @@ const schema = lexicographicSortSchema(
 
 const schemaWithResolvers: GraphQLSchema = addResolversToSchema({
   schema,
-  resolvers,
+  resolvers, // "stitched" up resolvers all added to server at once
 });
 
 const apolloServer = new ApolloServer({
