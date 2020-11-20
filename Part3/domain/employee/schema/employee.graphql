@@ -32,9 +32,9 @@ input NameInput {
 type Employee {
   id: String
   name: Name
-  title: Title
-  email: String
-  practice: Practice
+  title: Title!
+  email: String!
+  practice: Practice!
 }
 
 input CreateEmployeeInput {

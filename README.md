@@ -19,6 +19,26 @@ Note that only fields requested will be returned, remove title and show that tit
 ## Part Two
 Arrange the code responsibly and create our first query that actually uses the REST API.
 
+Introspection Query:
+```
+{
+  __type(name: "employee") {
+    name
+    fields {
+      name
+      type {
+        name
+        kind
+        ofType {
+          name
+          kind
+        }
+      }
+    }
+  }
+}
+```
+
 Example Query:
 ```
 query {

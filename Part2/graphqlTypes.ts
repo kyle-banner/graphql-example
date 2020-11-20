@@ -42,9 +42,9 @@ export type Employee = {
   __typename?: 'Employee';
   id?: Maybe<Scalars['String']>;
   name?: Maybe<Name>;
-  title?: Maybe<Title>;
-  email?: Maybe<Scalars['String']>;
-  practice?: Maybe<Practice>;
+  title: Title;
+  email: Scalars['String'];
+  practice: Practice;
 };
 
 /** GraphQL operations that query/read data. */
@@ -152,9 +152,9 @@ export type NameResolvers<ContextType = any, ParentType extends ResolversParentT
 export type EmployeeResolvers<ContextType = any, ParentType extends ResolversParentTypes['Employee'] = ResolversParentTypes['Employee']> = {
   id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   name?: Resolver<Maybe<ResolversTypes['Name']>, ParentType, ContextType>;
-  title?: Resolver<Maybe<ResolversTypes['Title']>, ParentType, ContextType>;
-  email?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  practice?: Resolver<Maybe<ResolversTypes['Practice']>, ParentType, ContextType>;
+  title?: Resolver<ResolversTypes['Title'], ParentType, ContextType>;
+  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  practice?: Resolver<ResolversTypes['Practice'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
