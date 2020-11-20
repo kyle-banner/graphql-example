@@ -1,22 +1,30 @@
 import { Employee, QueryEmployeeArgs, MutationCreateEmployeeArgs, CreateEmployeePayload, MutationDeleteEmployeeArgs, DeleteEmployeePayload, MutationUpdateEmployeeArgs, UpdateEmployeePayload } from '@part3/graphqlTypes';
+import convertRestToGraphEmployeeEnums from '@part3Employee/util/convertRestToGraphEmployeeEnums';
 
 const employee = async (
   args: QueryEmployeeArgs,
   { dataSources }
 ): Promise<Employee> => {
-  const response: Employee = await dataSources.rouletteApi.getEmployee(args.id);
+  const response = await dataSources.rouletteApi.getEmployee(args.id);
 
   console.log('GET /employees/{id} response', response);
 
-  return response;
+  const employee: Employee = convertRestToGraphEmployeeEnums(response);
+
+  return employee;
 };
 
 const employees = async (
   { dataSources }
 ): Promise<Employee[]> => {
-  const response: Employee[] = await dataSources.rouletteApi.getEmployees();
+  const response = await dataSources.rouletteApi.getEmployees();
 
   console.log('GET /employees response', response);
+
+  let employees: Employee[] =[];
+  response.forEach(employee => {
+    employees.push(convertRestToGraphEmployeeEnums(employee));
+  });
 
   return response;
 };
