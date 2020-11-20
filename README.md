@@ -22,7 +22,7 @@ Arrange the code responsibly and create our first query that actually uses the R
 Introspection Query:
 ```
 {
-  __type(name: "employee") {
+  __type(name: "Employee") {
     name
     fields {
       name
