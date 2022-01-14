@@ -10,7 +10,8 @@ import { GraphQLFileLoader } from '@graphql-tools/graphql-file-loader';
 
 import config from './local.config.json';
 import resolvers from '@part3/resolver';
-import { RouletteApi } from '@part3/routletteApi';
+import { RouletteApi } from '@part3/dataSources/routletteApi';
+import rouletteDb from '@part3/dataSources/rouletteDb';
 
 const schema = lexicographicSortSchema(
   loadSchemaSync('**/*.graphql', {
@@ -25,7 +26,8 @@ const schemaWithResolvers: GraphQLSchema = addResolversToSchema({
 
 const apolloServer = new ApolloServer({
   dataSources: () => ({
-    rouletteApi: new RouletteApi()
+    rouletteApi: new RouletteApi(),
+    rouletteDb
   }),
   schema: schemaWithResolvers,
   introspection: config.introspection,

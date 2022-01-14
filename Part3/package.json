@@ -16,8 +16,11 @@
     "apollo-datasource-rest": "^0.9.5",
     "apollo-server": "^2.19.0",
     "cookie-parser": "^1.4.5",
+    "datasource-sql": "^1.6.0",
     "graphql": "^15.4.0",
     "graphql-tools": "^7.0.1",
+    "knex": "^0.95.15",
+    "pg": "^8.7.1",
     "tsconfig-paths": "^3.9.0"
   },
   "devDependencies": {

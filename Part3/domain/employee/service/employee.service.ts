@@ -17,16 +17,23 @@ const employee = async (
 const employees = async (
   { dataSources }
 ): Promise<Employee[]> => {
-  const response = await dataSources.rouletteApi.getEmployees();
+  const response = await dataSources.rouletteDb.getEmployees();
 
   console.log('GET /employees response', response);
 
   let employees: Employee[] =[];
   response.forEach(employee => {
-    employees.push(convertRestToGraphEmployeeEnums(employee));
+    const convertedEmployee = convertRestToGraphEmployeeEnums(employee);
+    employees.push({
+      ...convertedEmployee,
+      name: {
+        firstName: convertedEmployee.firstName,
+        lastName: convertedEmployee.lastName
+      }
+    });
   });
 
-  return response;
+  return employees;
 };
 
 const createEmployee = async (
