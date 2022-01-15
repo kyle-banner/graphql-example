@@ -1,8 +1,0 @@
-"""
-GraphQL operations that query/read data.
-"""
-type Query
-"""
-GraphQL operations that mutate/write data.
-"""
-type Mutation

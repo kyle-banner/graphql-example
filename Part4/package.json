@@ -1,35 +1,23 @@
 {
-  "name": "getting-started-with-graphql",
-  "version": "1.0.0",
-  "description": "",
-  "main": "server.ts",
+  "name": "federation-demo",
+  "main": "gateway.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node-dev -r tsconfig-paths/register src/gateway.ts",
-    "generate-typings": "graphql-codegen"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@apollo/gateway": "^0.28.1",
-    "@graphql-tools/schema": "^7.0.0",
-    "apollo-datasource-rest": "^0.9.5",
-    "apollo-server-express": "^2.24.0",
-    "cookie-parser": "^1.4.5",
-    "datasource-sql": "^1.6.0",
-    "express": "^4.17.1",
-    "graphql": "^15.4.0",
-    "graphql-tools": "^7.0.1",
-    "knex": "^0.95.15",
-    "pg": "^8.7.1",
-    "tsconfig-paths": "^3.9.0"
+    "start-gateway": "nodemon gateway.js",
+    "start-service-accounts": "nodemon services/accounts/index.js",
+    "start-service-reviews": "nodemon services/reviews/index.js",
+    "start-service-products": "nodemon services/products/index.js",
+    "start-service-inventory": "nodemon services/inventory/index.js",
+    "start-services": "concurrently \"npm:start-service-*\"",
+    "postinstall": "lerna bootstrap"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "^1.19.1",
-    "@graphql-codegen/typescript": "^1.17.11",
-    "@graphql-codegen/typescript-resolvers": "^1.17.10",
-    "ts-node-dev": "^1.0.0",
-    "typescript": "^4.0.5"
+    "lerna": "latest",
+    "nodemon": "latest",
+    "concurrently": "latest"
+  },
+  "dependencies": {
+    "@apollo/gateway": "^0.28.1",
+    "apollo-server": "^2.24.1",
+    "graphql": "^15.5.0"
   }
 }
