@@ -124,3 +124,9 @@ mutation updateEmployee {
   }
 }
 ```
+
+## Part 4
+
+An example of Federation v1 pulled directly from https://github.com/apollographql/federation-demo
+
+This repository does not have an example of Federation v2 yet.
