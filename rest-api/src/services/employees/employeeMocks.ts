@@ -11,6 +11,7 @@ function employeesMock() {
       title: Title.SA,
       email: 'kyle.banner@slalom.com',
       practice: Practice.TE,
+      id: '1234'
     },
     {
       name: {
@@ -20,6 +21,7 @@ function employeesMock() {
       title: Title.CO,
       email: 'joshua.prouty@slalom.com',
       practice: Practice.DL,
+      id: '5678'
     }
   ]
 }
@@ -33,6 +35,7 @@ function employeeMock() {
     title: Title.SA,
     email: 'kyle.banner@slalom.com',
     practice: Practice.TE,
+    id: '1234'
   };
 }
 

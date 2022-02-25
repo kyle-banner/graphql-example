@@ -7,8 +7,22 @@ export class RouletteApi extends RESTDataSource {
   }
 
   async getEmployee(employeeId: String) {
-    const result = await this.get(`employees/${employeeId}`);
+    if (!employeeId) {
+      throw new Error('No employee id');
+    }
 
-    return result;
+    return {
+      name: {
+        firstName: 'Kyle',
+        lastName: 'Banner',
+      },
+      title: 'Solution Architect',
+      email: 'kyle.banner@slalom.com',
+      practice: 'Technology Enablement',
+      id: '1234'
+    };
+    // const result = await this.get(`employees/${employeeId}`);
+
+    // return result;
   }
 };

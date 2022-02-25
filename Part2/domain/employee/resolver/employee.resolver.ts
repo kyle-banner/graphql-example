@@ -7,8 +7,8 @@ import employee from '@part2Employee/service/employee.service';
 
 const resolver: Resolvers = {
   Query: {
-    employee: async (parent, args: QueryEmployeeArgs, { dataSources }): Promise<Employee> => {
-      return employee(args, { dataSources });
+    employee: async (parent, args: QueryEmployeeArgs, context): Promise<Employee> => {
+      return employee(args, context.dataSources);
     },
   },
 };

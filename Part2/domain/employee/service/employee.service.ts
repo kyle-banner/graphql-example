@@ -3,7 +3,7 @@ import convertRestToGraphEmployeeEnums from '@part2Employee/util/convertRestToGr
 
 const employee = async (
   args: QueryEmployeeArgs,
-  { dataSources }
+  dataSources
 ): Promise<Employee> => {
   const response = await dataSources.rouletteApi.getEmployee(args.id);
 
