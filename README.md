@@ -1,7 +1,7 @@
 # graphql-example
 Example of Using GraphQL to Wrap a REST Layer
 
-## Part One
+## Part 1
 Result of https://www.apollographql.com/docs/apollo-server/getting-started/
 
 Example Query:
@@ -16,7 +16,7 @@ Example Query:
 
 Note that only fields requested will be returned, remove title and show that title is not in the result.
 
-## Part Two
+## Part 2
 Arrange the code responsibly and create our first query that actually uses the REST API.
 
 Introspection Query:
@@ -55,7 +55,7 @@ query {
 }
 ```
 
-## Part Three
+## Part 3
 Add mutations and queries to cover the Roulette REST API.
 
 Available Queries and Mutations:
